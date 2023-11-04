@@ -1,1 +1,153 @@
-//= 9EMAs by Gabriel Martin //@version=4 study(title="MULTIEMA", shorttitle="9EMAs GM", overlay=true, resolution="") texto=input (title="texto",type=input.string,defval= "GABRIEL MARTIN") periodo1= input(10,"Período 1",input.integer) periodo2= input(20,"Período 2",input.integer) periodo3= input(30,"Período 3",input.integer) periodo4= input(40,"Período 4",input.integer) periodo5= input(50,"Período 5",input.integer) periodo6= input(60,"Período 6",input.integer) periodo7= input(70,"Período 7",input.integer) periodo8= input(80,"Período 8",input.integer) periodo9= input(90,"Período 9",input.integer) suavizado1 = input(title="Media móvil 1 ", defval="EMA", options=["SMA","EMA", "WMA", "RMA"]) suavizado2 = input(title="Media móvil 2 ", defval="EMA", options=["SMA","EMA", "WMA", "RMA"]) suavizado3 = input(title="Media móvil 3 ", defval="EMA", options=["SMA","EMA", "WMA", "RMA"]) suavizado4 = input(title="Media móvil 4 ", defval="EMA", options=["SMA","EMA", "WMA", "RMA"]) suavizado5 = input(title="Media móvil 5 ", defval="EMA", options=["SMA","EMA", "WMA", "RMA"]) suavizado6 = input(title="Media móvil 6 ", defval="EMA", options=["SMA","EMA", "WMA", "RMA"]) suavizado7 = input(title="Media móvil 7 ", defval="EMA", options=["SMA","EMA", "WMA", "RMA"]) suavizado8 = input(title="Media móvil 8 ", defval="EMA", options=["SMA","EMA", "WMA", "RMA"]) suavizado9 = input(title="Media móvil 9 ", defval="EMA", options=["SMA","EMA", "WMA", "RMA"]) primero(source, length) => if suavizado1 == "WMA" wma(source, length) else if suavizado1 == "EMA" ema(source, length) else if suavizado1 == "SMA" sma(source, length) else rma(source, length) segundo(source, length) => if suavizado2 == "SMA" sma(source, length) else if suavizado2 == "EMA" ema(source, length) else if suavizado2 == "WMA" wma(source, length) else rma(source, length) tercero(source, length) => if suavizado3 == "SMA" sma(source, length) else if suavizado3 == "EMA" ema(source, length) else if suavizado3 == "WMA" wma(source, length) else rma(source, length) cuarto(source, length) => if suavizado4 == "WMA" wma(source, length) else if suavizado4 == "EMA" ema(source, length) else if suavizado4 == "SMA" sma(source, length) else rma(source, length) quinto(source, length) => if suavizado5 == "SMA" sma(source, length) else if suavizado5 == "EMA" ema(source, length) else if suavizado5 == "WMA" wma(source, length) else rma(source, length) sexto(source, length) => if suavizado6 == "SMA" sma(source, length) else if suavizado6 == "EMA" ema(source, length) else if suavizado6 == "WMA" wma(source, length) else rma(source, length) septimo(source, length) => if suavizado7 == "WMA" wma(source, length) else if suavizado7 == "EMA" ema(source, length) else if suavizado7 == "SMA" sma(source, length) else rma(source, length) octavo(source, length) => if suavizado8 == "SMA" sma(source, length) else if suavizado8 == "EMA" ema(source, length) else if suavizado8 == "WMA" wma(source, length) else rma(source, length) noveno(source, length) => if suavizado9 == "SMA" sma(source, length) else if suavizado9 == "EMA" ema(source, length) else if suavizado9 == "WMA" wma(source, length) else rma(source, length) mm1 = primero(close, periodo1) mm2 = segundo(close, periodo2) mm3 = tercero(close, periodo3) mm4 = cuarto(close, periodo4) mm5 = quinto(close, periodo5) mm6 = sexto(close, periodo6) mm7 = septimo(close, periodo7) mm8 = octavo(close, periodo8) mm9 = noveno(close, periodo9) plot(mm9,color=#00FFFF) plot(mm8,color=#00E5E5) plot(mm7,color=#00CCCC) plot(mm6,color=#00B2B2) plot(mm5,color=#009999) plot(mm4,color=#007F7F) plot(mm3,color=#006666) plot(mm2,color=#004C4C) plot(mm1,color=#003333)
+//= 9EMAs by Gabriel Martin
+//@version=4
+
+study(title="MULTIEMA", shorttitle="9EMAs GM", overlay=true, resolution="")
+texto=input (title="texto",type=input.string,defval= "GABRIEL MARTIN")
+
+periodo1= input(10,"Período 1",input.integer)
+periodo2= input(20,"Período 2",input.integer)
+periodo3= input(30,"Período 3",input.integer)
+periodo4= input(40,"Período 4",input.integer)
+periodo5= input(50,"Período 5",input.integer)
+periodo6= input(60,"Período 6",input.integer)
+periodo7= input(70,"Período 7",input.integer)
+periodo8= input(80,"Período 8",input.integer)
+periodo9= input(90,"Período 9",input.integer)
+
+suavizado1 = input(title="Media móvil 1 ", defval="EMA", options=["SMA","EMA", "WMA", "RMA"])
+suavizado2 = input(title="Media móvil 2 ", defval="EMA", options=["SMA","EMA", "WMA", "RMA"])
+suavizado3 = input(title="Media móvil 3 ", defval="EMA", options=["SMA","EMA", "WMA", "RMA"])
+suavizado4 = input(title="Media móvil 4 ", defval="EMA", options=["SMA","EMA", "WMA", "RMA"])
+suavizado5 = input(title="Media móvil 5 ", defval="EMA", options=["SMA","EMA", "WMA", "RMA"])
+suavizado6 = input(title="Media móvil 6 ", defval="EMA", options=["SMA","EMA", "WMA", "RMA"])
+suavizado7 = input(title="Media móvil 7 ", defval="EMA", options=["SMA","EMA", "WMA", "RMA"])
+suavizado8 = input(title="Media móvil 8 ", defval="EMA", options=["SMA","EMA", "WMA", "RMA"])
+suavizado9 = input(title="Media móvil 9 ", defval="EMA", options=["SMA","EMA", "WMA", "RMA"])
+
+primero(source, length) =>
+    if suavizado1 == "WMA"
+        wma(source, length)
+    else
+        if suavizado1  == "EMA"
+            ema(source, length)
+        else
+            if suavizado1 == "SMA"
+                sma(source, length)
+            else
+                rma(source, length)
+
+segundo(source, length) =>
+    if suavizado2 == "SMA"
+        sma(source, length)
+    else
+        if suavizado2  == "EMA"
+            ema(source, length)
+        else
+            if suavizado2 == "WMA"
+                wma(source, length)
+            else
+                rma(source, length)
+
+tercero(source, length) =>
+    if suavizado3 == "SMA"
+        sma(source, length)
+    else
+        if suavizado3  == "EMA"
+            ema(source, length)
+        else
+            if suavizado3 == "WMA"
+                wma(source, length)
+            else
+                rma(source, length)
+
+cuarto(source, length) =>
+    if suavizado4 == "WMA"
+        wma(source, length)
+    else
+        if suavizado4  == "EMA"
+            ema(source, length)
+        else
+            if suavizado4 == "SMA"
+                sma(source, length)
+            else
+                rma(source, length)
+
+quinto(source, length) =>
+    if suavizado5 == "SMA"
+        sma(source, length)
+    else
+        if suavizado5  == "EMA"
+            ema(source, length)
+        else
+            if suavizado5 == "WMA"
+                wma(source, length)
+            else
+                rma(source, length)
+
+sexto(source, length) =>
+    if suavizado6 == "SMA"
+        sma(source, length)
+    else
+        if suavizado6  == "EMA"
+            ema(source, length)
+        else
+            if suavizado6 == "WMA"
+                wma(source, length)
+            else
+                rma(source, length)
+
+septimo(source, length) =>
+    if suavizado7 == "WMA"
+        wma(source, length)
+    else
+        if suavizado7  == "EMA"
+            ema(source, length)
+        else
+            if suavizado7 == "SMA"
+                sma(source, length)
+            else
+                rma(source, length)
+
+octavo(source, length) =>
+    if suavizado8 == "SMA"
+        sma(source, length)
+    else
+        if suavizado8  == "EMA"
+            ema(source, length)
+        else
+            if suavizado8 == "WMA"
+                wma(source, length)
+            else
+                rma(source, length)
+
+noveno(source, length) =>
+    if suavizado9 == "SMA"
+        sma(source, length)
+    else
+        if suavizado9  == "EMA"
+            ema(source, length)
+        else
+            if suavizado9 == "WMA"
+                wma(source, length)
+            else
+                rma(source, length)
+
+mm1 = primero(close, periodo1)
+mm2 = segundo(close, periodo2)
+mm3 = tercero(close, periodo3)
+mm4 = cuarto(close, periodo4)
+mm5 = quinto(close, periodo5)
+mm6 = sexto(close, periodo6)
+mm7 = septimo(close, periodo7)
+mm8 = octavo(close, periodo8)
+mm9 = noveno(close, periodo9)
+
+plot(mm9,color=#00FFFF)
+plot(mm8,color=#00E5E5)
+plot(mm7,color=#00CCCC)
+plot(mm6,color=#00B2B2)
+plot(mm5,color=#009999)
+plot(mm4,color=#007F7F)
+plot(mm3,color=#006666)
+plot(mm2,color=#004C4C)
+plot(mm1,color=#003333)
